@@ -1,0 +1,100 @@
+START
+ A = "8"
+    B = "7"
+    WRITE A + B
+END
+START
+ A = 8
+    B = "7"
+    WRITE A + B
+END
+START
+A = "learning"
+    B = "am"
+    C = "i"
+    D = "code"
+WRITE C + " " + B + " " + A + " " + D
+END
+START
+A = "7"
+    B = "12"
+C = A
+    
+    A = "A = " + B
+    B = "B = " + C 
+    WRITE A
+    WRITE B
+END
+START
+WRITE "What's your first name?"
+    READ FIRST_NAME
+    WRITE "What's your favorite dish?"
+    READ FAVORITE_FOOD   
+    WRITE "Your first name is" + FIRST_NAME + " and you like " + FAVORITE_FOOD
+END
+=================================================================================================
+START
+WRITE "Hoe oud bent u ?"
+   READ age
+    IF age < 18 THEN
+        WRITE "U bent te jong om de BeCode opleiding te volgen"
+    ELSE
+        WRITE "U kunt deelnemen aan de training"
+    ENDIF     
+END
+START
+WRITE "Wat is uw leeftijd?"   
+    READ age
+    WRITE "Hoeveel badges heeft u?"
+    READ badge
+
+    IF age >= 18 AND badge >= 25 THEN
+        WRITE "Welkom bij BeCode"
+    ENDIF
+    IF age < 18 THEN 
+        WRITE "U moet minstens", (18-age), "jaren wachten om deel te mogen nemen aan de opleiding"
+    ENDIF
+    IF badge < 25 THEN 
+        WRITE "U mist nog", 25 - badge, "badge(s) om deel te nemen aan de training"
+    ENDIF  
+END
+START
+WRITE "Hoe oud bent u?"
+    READ age
+    IF age < 2 THEN 
+        WRITE "U hoeft niet te betalen"
+    ELSE IF age < 10 THEN
+        WRITE "Wat is de prijs?"
+        READ price
+        WRITE "U moet betalen : ", price/2
+    ELSE IF age <27 OR age >70 THEN
+        WRITE "Wat is de prijs?"
+        READ price 
+        WRITE "U moet betalen : ", price - (price/100)*10
+    ELSE
+        WRITE "Geen korting"
+    ENDIF  
+END
+START
+number = 3
+    WHILE number >= 0 DO
+        WRITE number
+        number = number - 1
+    ENDWHILE
+    WRITE "Einde van de lus" 
+END
+START
+   answer=15
+   WRITE "de juiste prijs"
+   READ guess
+   WHILE guess != answer DO
+    IF guess<answer THEN
+     WRITE "het is meer"
+    ELSE
+     WRITE "het is minder"
+    ENDIF
+    WRITE "guess again"
+    READ guess
+   ENDWHILE
+   WRITE "Goed gedaan, je hebt gewonnen"
+END
