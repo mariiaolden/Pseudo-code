@@ -98,3 +98,148 @@ START
    ENDWHILE
    WRITE "Goed gedaan, je hebt gewonnen"
 END
+============================================================================
+# ARRAYS
+========================================================
+START
+        juniors = [["David", "Justine", "Valentin","Axel", "Redouane"], ["Julie", "Stéphane", "Mostapha", "Claudiu", "Son"]]
+
+        FOR i = 1 TO 2 DO
+            FOR y = 1 TO 5 DO
+                FIRST_NAME = juniors[i][y]
+                WRITE FIRST_NAME +" is een junior van de startup Hopper."
+            ENDFOR
+        ENDFOR 
+END
+====================
+START
+        juniors = [["David", "Justine", "Valentin","Axel", "Redouane"], ["Julie", "Stéphane", "Mostapha", "Claudiu", "Son"]]
+        skills = ["html", "css", "javascript", "php", "Java"]
+        FOR i = 1 TO 2 DO
+            FOR y = 1 TO 5 DO
+                FIRST_NAME = juniors[i][y]
+                y = RANDOM(1,5)
+                WRITE FIRST_NAME +" is een junior van de startup Hopper met de vaardigheid "+skills[y]
+            ENDFOR
+        ENDFOR 
+END
+=======================
+START
+        numbers = [[18,55],[29,13],[-2,15],[66,44]]
+        highest = 0
+        FOR i = 1 TO 4 DO
+            FOR y = 1 TO 2 DO
+              IF numbers[i][y]>highest THEN
+                highest = numbers[i][y]
+              ENDIF  
+            ENDFOR
+        ENDFOR
+        WRITE "Grootste getal uit de array = ",highest 
+END
+========================
+START
+        juniors = [["David", 'Justine', 'Valentijn', 'Axel', 'Redouane'], ['Julie', 'Stéphane', 'Mostapha', 'Claudiu', 'Zoon']]
+        FOR i = 1 TO 2 DO
+            FOR y = 1 TO 5 DO
+              FIRST_NAME = juniors[i][y]
+              IF i = 1 THEN               
+                WRITE FIRST_NAME+" is een junior van Turings."
+              ELSE
+                WRITE FIRST_NAME+" is een junior van Lovelaces"
+              ENDIF  
+            ENDFOR
+        ENDFOR        
+END
+==========================
+# FUNCTIES
+==========================================================
+ENTER   FIRST_NAME
+        sentence = "Hello en welkom "+FIRST_NAME
+RETURN   sentence
+
+START
+        WRITE "Naam aub?"
+        READ naam
+        WRITE HELLO(naam)
+               
+END
+========================
+ENTER  A, B
+       IF A > B THEN
+        a = 0
+       ELSE 
+        a =1
+       ENDIF
+RETURN    a
+
+START
+        a = HIGHERLOWER(5,1)
+       WRITE a        
+END
+==========================
+ENTER    FIRST_NAME, SKILL, STARTUP
+    skills = ""
+    FOR i = 1 TO COUNT(SKILL)-1 DO
+       IF i < COUNT(SKILL)-1 THEN
+        skills = skills + SKILL[i]+ ", "
+       ELSE
+        skills = skills + SKILL[i]+" en "+SKILL[COUNT(SKILL)]
+       ENDIF
+    ENDFOR
+    print = FIRST_NAME+ " is van de startup " + STARTUP + " en kent " + skills 
+
+RETURN print
+
+START
+        skills = ["Java", "Html", "Css", "Javascript", "PHP"]
+        WRITE DERDE("El Mahdi", skills, "Becode")        
+END
+==========================
+ENTER   guess
+    willekeurig = RANDOM(100)
+    teller = 0
+
+    WHILE guess != willekeurig AND teller < 11 DO
+        IF guess < willekeurig  THEN
+            WRITE "Getal ligt hoger"
+            teller = teller + 1
+            READ guess
+        ELSE IF guess > willekeurig  THEN
+            WRITE "Getal ligt lager"
+            teller = teller + 1
+            READ guess
+        ENDIF
+    ENDWHILE
+    IF teller > 10 THEN
+        WRITE "Je hebt gefaald, meer dan 10x proberen te raden"
+    ELSE
+        WRITE "Je hebt het getal geraden!! Het getal was ",willekeurig
+    ENDIF
+RETURN
+
+START
+        WRITE "Raad de prijs!"
+        READ var
+        WRITE PRIJS(var)        
+END
+=======================
+ENTER   unsorted_array
+
+    lengte = COUNT(unsorted_array)
+    voorlopig = 0
+    FOR i = 1 TO lengte DO
+        FOR j = 2 TO lengte DO
+            IF unsorted_array[j-1] > unsorted_array[j] THEN
+                voorlopig = unsorted_array[j-1]
+                unsorted_array[j-1] = unsorted_array[j]
+                unsorted_array[j] = voorlopig
+            ENDIF
+        ENDFOR
+    ENDFOR
+RETURN unsorted_array
+
+START
+       tri = [454, 4, 59, 68, 1, 0, -1 , 56 , 7 , 9]
+       WRITE SORT(tri)       
+END
+
